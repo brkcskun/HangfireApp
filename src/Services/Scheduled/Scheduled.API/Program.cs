@@ -51,6 +51,7 @@ app.UseHangfireDashboard("/hangfire", new DashboardOptions()
 
 app.MapHangfireDashboard();
 
+// Recurring jobs fire many times on the specified CRON schedule.
 RecurringJob.AddOrUpdate<IServiceManagement>(x => x.SyncRecords(), "0 * * ? * *");
 
 app.Run();
